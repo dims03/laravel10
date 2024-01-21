@@ -24,6 +24,7 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <a href="{{ route('user.create') }}" class="btn btn-primary mb-2">Tambah Data</a>
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Table All Users</h3>
