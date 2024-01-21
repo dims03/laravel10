@@ -64,8 +64,18 @@ class HomeController extends Controller
          }
 
          User::whereId($id)->update($data);
-         
+
          return redirect()->route('index');
+    }
+
+    public function delete(Request $request,$id){
+        $data = User::find($id);
+
+        if($data){
+            $data->delete();
+        }
+
+        return redirect()->route('index');
     }
 }
 
