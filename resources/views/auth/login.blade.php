@@ -96,10 +96,19 @@
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+{{-- Sweet alert berhasil login --}}
+@if ($message = Session::get('success'))
+<script>
+    Swal.fire("{{ $message }}");
+</script>
+@endif
+
+{{-- Sweet alert failed login --}}
 @if ($message = Session::get('failed'))
 <script>
     Swal.fire("{{ $message }}");
 </script>
 @endif
+
 </body>
 </html>
