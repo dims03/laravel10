@@ -34,6 +34,9 @@
             </div>
           </div>
         </div>
+        @error('email')
+              <small style="color: red;">{{ $message }}</small>
+          @enderror
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
@@ -42,6 +45,9 @@
             </div>
           </div>
         </div>
+        @error('password')
+            <small style="color: red;">{{ $message }}</small>
+        @enderror
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -88,5 +94,12 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if ($message = Session::get('failed'))
+<script>
+    Swal.fire("{{ $message }}");
+</script>
+@endif
 </body>
 </html>
