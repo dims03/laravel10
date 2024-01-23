@@ -61,8 +61,11 @@
         @enderror
         <div class="row">
           <!-- /.col -->
-          <div class="col-12">
+          <div class="col-12 mb-2">
             <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+          </div>
+          <div class="col-12 text-center">
+            <a href="{{ route('login') }}"> Back Home</a>
           </div>
           <!-- /.col -->
         </div>
