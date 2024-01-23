@@ -26,7 +26,8 @@ class HomeController extends Controller
     public function store(Request $request){
         // dd($request->all());
         $validator = Validator::make($request->all(), [
-           'email' => 'required|email',
+            'photo' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'email' => 'required|email',
             'nama' => 'required',
             'password' => 'required',
         ]);

@@ -20,7 +20,7 @@
     
     <section class="content">
         <div class="container-fluid">
-            <form action="{{ route('admin.user.store') }}" method="POST">
+            <form action="{{ route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                   <!-- left column -->
@@ -35,15 +35,22 @@
                       <form>
                         <div class="card-body">
                           <div class="form-group">
+                            <label for="exampleInputEmail1">Photo Profile</label>
+                            <input type="file" class="form-control" id="exampleInputEmail1" name="photo">
+                            @error('photo')
+                                <small>{{ $message }}</small>
+                            @enderror
+                          </div>
+                          <div class="form-group">
                             <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email">
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email" value="{{ old('email') }}">
                             @error('email')
                                 <small>{{ $message }}</small>
                             @enderror
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" id="exampleInputNama" name="nama" placeholder="Enter nama">
+                            <input type="text" class="form-control" id="exampleInputNama" name="nama" placeholder="Enter nama" value="{{ old('nama') }}">
                             @error('nama')
                             <small>{{ $message }}</small>
                         @enderror
